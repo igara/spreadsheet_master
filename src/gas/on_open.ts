@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const onOpen = (_: GoogleAppsScript.Events.SheetsOnOpen) => {
   const spreadSheet = SpreadsheetApp.getActiveSpreadsheet();
   const temp = Utilities.getUuid();
