@@ -31,5 +31,6 @@ jobs:
           npm run new name="Test-${TIME}"
           npm run test
       - name: build & publish task
+        run: |
           npm run build
           npx clasp push -f
