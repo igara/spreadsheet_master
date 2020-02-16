@@ -21,17 +21,8 @@ jobs:
       - name: install task
         run: |
           npm install
-      - name: set .clasprc.json
-        run: |
-          echo "${{ secrets.CLASPRC_JSON }}" > ~/.clasprc.json
-          echo "${{ secrets.CLASP_JSON }}" > ~/.clasp.json
-      # TIME=`date "+%Y%m%d-%H%M%S"`
-      # npm run new name="Test-${TIME}"
       - name: test task
         run: |
           npm run lint
           npm run test
-      - name: build & publish task
-        run: |
           npm run build
-          npx clasp push -f
