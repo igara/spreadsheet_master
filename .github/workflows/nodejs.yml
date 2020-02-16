@@ -24,6 +24,7 @@ jobs:
       - name: set .clasprc.json
         run: |
           echo "${{ secrets.CLASPRC_JSON }}" > ~/.clasprc.json
+          echo "${{ secrets.CLASP_JSON }}" > ~/.clasp.json
       - name: test task
         run: |
           npm run lint
