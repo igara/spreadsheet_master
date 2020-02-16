@@ -1,0 +1,63 @@
+{
+  "name": "spreadsheet_master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "clean": "rm -rf dist/**/*.ts.js dist/*.ts.js",
+    "new": "ts-node -r tsconfig-paths/register src/tasks/create_clasp_json.ts",
+    "dump": "ts-node -r tsconfig-paths/register src/tasks/dump_spreadsheet_to_file.ts",
+    "import": "ts-node -r tsconfig-paths/register src/tasks/import_csv_to_spreadsheet.ts",
+    "build": "node_modules/.bin/webpack",
+    "watch": "node_modules/.bin/watch 'npm run clean && npm run build && clasp push' ./src",
+    "lint": "eslint . --ext .ts",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igara/spreadsheet_master.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igara/spreadsheet_master/issues"
+  },
+  "homepage": "https://github.com/igara/spreadsheet_master#readme",
+  "dependencies": {
+    "@google/clasp": "2.3.0",
+    "csv": "5.3.1",
+    "googleapis": "47.0.0",
+    "yaml": "1.7.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.8.4",
+    "@babel/preset-env": "7.8.4",
+    "@babel/preset-typescript": "7.8.3",
+    "@types/google-apps-script": "1.0.10",
+    "@types/jest": "25.1.2",
+    "@types/node": "13.7.1",
+    "@types/yaml": "1.2.0",
+    "@typescript-eslint/eslint-plugin": "2.19.2",
+    "@typescript-eslint/parser": "2.19.2",
+    "babel-loader": "8.0.6",
+    "es3ify-webpack-plugin": "0.1.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-simple-import-sort": "5.0.1",
+    "file-loader": "^5.0.2",
+    "gas-webpack-plugin": "1.0.2",
+    "jest": "25.1.0",
+    "prettier": "1.19.1",
+    "ts-jest": "25.2.0",
+    "ts-node": "8.6.2",
+    "tsconfig-paths": "3.9.0",
+    "tsconfig-paths-jest": "0.0.1",
+    "typescript": "3.7.5",
+    "webpack": "4.41.6",
+    "webpack-cli": "3.3.11"
+  },
+  "_moduleAliases": {
+    "@src": "./src"
+  }
+}

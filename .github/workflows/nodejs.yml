@@ -1,0 +1,35 @@
+name: nodejs
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: install task
+        run: |
+          npm install
+      - name: set .clasprc.json
+        run: |
+          echo "${{ secrets.CLASPRC_JSON }}" > ~/.clasprc.json
+      - name: test task
+        run: |
+          npm run lint
+          TIME=`date "+%Y%m%d-%H%M%S"`
+          npm run new name="Test-${TIME}"
+          npm run test
+      - name: build & publish task
+          npm run build
+          npx clasp push -f

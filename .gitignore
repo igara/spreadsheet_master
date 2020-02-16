@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+*.ts.js
+*.log
+.clasp.json
+.clasprc.json
+*.apps.googleusercontent.com.json
+creds.json

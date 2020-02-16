@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "types": ["@types/node", "@types/google-apps-script", "jest"],
+    "outDir": "./dist",
+    "rootDir": "./",
+    "baseUrl": "./",
+    "paths": {
+      "@utils/*": ["./src/utils/*"],
+      "@src/*": ["./src/*"],
+      "@root/*": ["./*"]
+    },
+    "typeRoots": ["types", "node_modules/@types"],
+    "resolveJsonModule": true
+  }
+}
