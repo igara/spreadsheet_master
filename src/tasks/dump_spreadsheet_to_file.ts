@@ -22,8 +22,8 @@ export const writeFileSheetValue = (
         const sheetName = response.data.range.replace(/!\S*/, "");
         const values = response.data.values.filter(value => value.length > 0);
 
-        fs.writeFileSync(`./data/sheets/${sheetName}.csv`, csvStringify(values));
-        fs.writeFileSync(`./data/sheets/${sheetName}.yml`, yaml.stringify(values));
+        fs.writeFileSync(`./data/values/${sheetName}.csv`, csvStringify(values));
+        fs.writeFileSync(`./data/values/${sheetName}.yml`, yaml.stringify(values));
       }),
   );
 };
@@ -66,6 +66,7 @@ export const exec = async () => {
     );
 
     Promise.all([
+      google.downloadSpreadsheet(spreadsheetId),
       ...writeFileSheetValue(spreadsheetId, sheetRanges, sheets),
       ...writeFileFormulaValue(spreadsheetId, sheetRanges, sheets),
     ]);

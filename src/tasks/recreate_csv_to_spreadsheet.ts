@@ -22,71 +22,42 @@ export const recreateCSVToSpreadsheet = async (
 
   // eslint-disable-next-line @typescript-eslint/camelcase
   const addSheetRequests: googleapis.sheets_v4.Schema$Request[] = [];
-  // eslint-disable-next-line @typescript-eslint/camelcase
-  const deleteSheetRequests: googleapis.sheets_v4.Schema$Request[] = [];
   csvFilePaths.forEach(csvFilePath => {
     const sheetName = path.basename(csvFilePath).replace(/\.csv/, "");
-    const copySheetName = `copy_${sheetName}`;
-    addSheetRequests.push({
-      addSheet: {
-        properties: {
-          title: copySheetName,
-        },
-      },
-    });
-    if (sheetIdBySheetNameOnSpreadSheet[sheetName]) {
-      deleteSheetRequests.push({
-        deleteSheet: {
-          sheetId: sheetIdBySheetNameOnSpreadSheet[sheetName],
+
+    if (!sheetIdBySheetNameOnSpreadSheet[sheetName]) {
+      addSheetRequests.push({
+        addSheet: {
+          properties: {
+            title: sheetName,
+          },
         },
       });
     }
   });
 
-  return await sheets.spreadsheets
-    .batchUpdate({
+  if (addSheetRequests.length > 0) {
+    await sheets.spreadsheets.batchUpdate({
       spreadsheetId,
       requestBody: {
-        requests: [...addSheetRequests, ...deleteSheetRequests],
+        requests: addSheetRequests,
       },
-    })
-    .then(response => {
-      // eslint-disable-next-line @typescript-eslint/camelcase
-      const updateSheetPropertiesRequests: googleapis.sheets_v4.Schema$Request[] = [];
-      return Promise.all(
-        response.data.replies
-          .filter(replie => replie.addSheet)
-          .map(replie => {
-            const addSheet = replie.addSheet;
-            const sheetName = addSheet.properties.title.replace(/copy_/, "");
-
-            updateSheetPropertiesRequests.push({
-              updateSheetProperties: {
-                properties: {
-                  sheetId: addSheet.properties.sheetId,
-                  title: sheetName,
-                },
-                fields: "title",
-              },
-            });
-            return sheets.spreadsheets.values.update({
-              spreadsheetId,
-              range: `${addSheet.properties.title}!A1`,
-              valueInputOption: "USER_ENTERED",
-              requestBody: {
-                values: csvParse(fs.readFileSync(`./data/formula/${sheetName}.csv`)),
-              },
-            });
-          }),
-      ).then(async () => {
-        await sheets.spreadsheets.batchUpdate({
-          spreadsheetId,
-          requestBody: {
-            requests: updateSheetPropertiesRequests,
-          },
-        });
-      });
     });
+  }
+
+  return Promise.all(
+    csvFilePaths.map(csvFilePath => {
+      const sheetName = path.basename(csvFilePath).replace(/\.csv/, "");
+      sheets.spreadsheets.values.update({
+        spreadsheetId,
+        range: `${sheetName}!A1`,
+        valueInputOption: "USER_ENTERED",
+        requestBody: {
+          values: csvParse(fs.readFileSync(`./data/formula/${sheetName}.csv`)),
+        },
+      });
+    }),
+  );
 };
 
 export const exec = async () => {

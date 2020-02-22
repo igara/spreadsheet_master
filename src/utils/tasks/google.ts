@@ -1,6 +1,8 @@
 import * as clasprcJson from "@utils/tasks/clasprc_json";
+import * as fs from "fs";
 import * as GoogleAuthLibrary from "google-auth-library";
 import * as googleapis from "googleapis";
+import * as request from "request-promise";
 
 export const client = () => {
   try {
@@ -36,3 +38,19 @@ export const sheets = (oauth2Client: GoogleAuthLibrary.OAuth2Client) =>
     version: "v4",
     auth: oauth2Client,
   });
+
+export const downloadSpreadsheet = (fileId: string) => {
+  const fetchUrl = `https://docs.google.com/feeds/download/spreadsheets/Export?key=${fileId}&amp;exportFormat=xlsx`;
+  const json = clasprcJson.read();
+
+  return request({
+    url: fetchUrl,
+    headers: {
+      Authorization: `Bearer ${json.token.access_token}`,
+    },
+    method: "GET",
+    encoding: null,
+  }).then(xlsx => {
+    fs.writeFileSync("./data/spreadsheet.xlsx", xlsx, "binary");
+  });
+};
