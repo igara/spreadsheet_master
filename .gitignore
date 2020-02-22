@@ -6,3 +6,5 @@ node_modules
 .clasprc.json
 *.apps.googleusercontent.com.json
 creds.json
+*.pdf
+prev_spreadsheet.xlsx

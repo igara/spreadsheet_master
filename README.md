@@ -22,6 +22,11 @@ npm run watch
 npm run dump
 # recreate csv to spreadsheet
 npm run recreate
+
+# spreadsheet compare(installed LibreOffice)
+brew cask install xquartz
+brew install diff-pdf
+npm run compare commit_hash=123456789abcd
 ```
 
 ## memo

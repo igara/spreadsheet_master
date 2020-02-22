@@ -8,6 +8,7 @@
     "new": "ts-node -r tsconfig-paths/register src/tasks/create_clasp_json.ts",
     "dump": "ts-node -r tsconfig-paths/register src/tasks/dump_spreadsheet_to_file.ts",
     "recreate": "ts-node -r tsconfig-paths/register src/tasks/recreate_spreadsheet.ts",
+    "compare": "ts-node -r tsconfig-paths/register src/tasks/compare.ts",
     "build": "node_modules/.bin/webpack",
     "watch": "node_modules/.bin/watch 'npm run clean && npm run build && clasp push' ./src",
     "lint": "eslint . --ext .ts",
