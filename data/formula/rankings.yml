@@ -8,7 +8,7 @@
   - 1
   - 1
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'events'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -20,10 +20,10 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
   - 1
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'users'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -35,12 +35,12 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
 - - ""
   - ""
   - 2
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'events'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -52,10 +52,10 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
   - 3
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'users'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -67,12 +67,12 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
 - - ""
   - ""
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'events'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -84,10 +84,10 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
   - 2
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'users'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -99,12 +99,12 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
 - - ""
   - ""
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'events'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -116,10 +116,10 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'users'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -131,12 +131,12 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
 - - ""
   - ""
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'events'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -148,10 +148,10 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'users'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -163,12 +163,12 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
 - - ""
   - ""
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'events'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -180,10 +180,10 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'users'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -195,12 +195,12 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
 - - ""
   - ""
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'events'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -212,10 +212,10 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'users'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -227,12 +227,12 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
 - - ""
   - ""
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'events'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", events!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -244,10 +244,10 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'users'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -259,14 +259,14 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
 - - ""
   - ""
   - ""
   - ""
   - ""
   - >-
-    =ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
+    =IFERROR(
       INDEX(
         INDIRECT("'users'" & "!" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "") & ":" & SUBSTITUTE(ADDRESS(1, MATCH("name", users!$1:$1, 0), 4), 1, "")),
         MATCH(
@@ -278,7 +278,7 @@
           0
         ) 
       )
-    )), 1, 1)
+    )
 - - ""
   - ""
   - 1
