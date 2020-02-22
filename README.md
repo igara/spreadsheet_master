@@ -20,8 +20,8 @@ npm run watch
 
 # dump csv from spreadsheet
 npm run dump
-# import csv to spreadsheet
-npm run import
+# recreate csv to spreadsheet
+npm run recreate
 ```
 
 ## memo

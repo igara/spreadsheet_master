@@ -6,7 +6,7 @@ import * as glob from "glob";
 import * as googleapis from "googleapis";
 import * as path from "path";
 
-export const importCSVToSpreadsheet = async (
+export const recreateCSVToSpreadsheet = async (
   spreadsheetId: string,
   csvFilePaths: string[],
   // eslint-disable-next-line @typescript-eslint/camelcase
@@ -95,7 +95,7 @@ export const exec = async () => {
     const sheets = google.sheets(client);
     const spreadsheetId = claspJson.spreadsheetId;
     const csvFilePaths = glob.sync("./data/formula/*.csv");
-    await importCSVToSpreadsheet(spreadsheetId, csvFilePaths, sheets);
+    await recreateCSVToSpreadsheet(spreadsheetId, csvFilePaths, sheets);
 
     return 0;
   } catch (error) {
