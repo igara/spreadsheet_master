@@ -70,8 +70,6 @@ export const exec = async () => {
       ...writeFileSheetValue(spreadsheetId, sheetRanges, sheets),
       ...writeFileFormulaValue(spreadsheetId, sheetRanges, sheets),
     ]);
-
-    return 0;
   } catch (error) {
     console.error(error);
   }

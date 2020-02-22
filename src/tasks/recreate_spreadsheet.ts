@@ -68,8 +68,6 @@ export const exec = async () => {
 
     const csvFilePaths = glob.sync("./data/formula/*.csv");
     await recreateCSVToSpreadsheet(spreadsheetId, csvFilePaths, sheets);
-
-    return 0;
   } catch (error) {
     console.error(error);
   }
