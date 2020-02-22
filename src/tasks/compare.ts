@@ -5,9 +5,9 @@ const exec = (commitHash: string) => {
   childProcess.execSync(gitShowCoomand);
 
   const currentPDFConvertCommand =
-    "/Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to pdf:writer_pdf_Export data/spreadsheet.xlsx";
+    "/Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to pdf data/spreadsheet.xlsx";
   const prevPDFConvertCommand =
-    "/Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to pdf:writer_pdf_Export prev_spreadsheet.xlsx";
+    "/Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to pdf prev_spreadsheet.xlsx";
   childProcess.execSync(currentPDFConvertCommand);
   childProcess.execSync(prevPDFConvertCommand);
 
