@@ -34,11 +34,13 @@ export const importCSVToSpreadsheet = async (
         },
       },
     });
-    deleteSheetRequests.push({
-      deleteSheet: {
-        sheetId: sheetIdBySheetNameOnSpreadSheet[sheetName],
-      },
-    });
+    if (sheetIdBySheetNameOnSpreadSheet[sheetName]) {
+      deleteSheetRequests.push({
+        deleteSheet: {
+          sheetId: sheetIdBySheetNameOnSpreadSheet[sheetName],
+        },
+      });
+    }
   });
 
   return await sheets.spreadsheets
@@ -101,11 +103,4 @@ export const exec = async () => {
   }
 };
 
-// const nameKeyValue = process.argv.join().match(/name=\S*/);
-// if (nameKeyValue && nameKeyValue.length === 1) {
-//   const name = nameKeyValue[0].replace("name=", "");
-//   console.info(` create name:${name} spreadsheet & script project...`);
 exec();
-// } else {
-//   console.error(' \u001b[31m please "npm run new name=hoge"');
-// }

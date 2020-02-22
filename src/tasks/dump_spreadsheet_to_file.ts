@@ -18,6 +18,7 @@ export const writeFileSheetValue = (
         range,
       })
       .then(async response => {
+        if (response.data.values === undefined) return;
         const sheetName = response.data.range.replace(/!\S*/, "");
         const values = response.data.values.filter(value => value.length > 0);
 
@@ -41,6 +42,7 @@ export const writeFileFormulaValue = (
         valueRenderOption: "FORMULA",
       })
       .then(response => {
+        if (response.data.values === undefined) return;
         const sheetName = response.data.range.replace(/!\S*/, "");
         const values = response.data.values.filter(value => value.length > 0);
 
@@ -74,11 +76,4 @@ export const exec = async () => {
   }
 };
 
-// const nameKeyValue = process.argv.join().match(/name=\S*/);
-// if (nameKeyValue && nameKeyValue.length === 1) {
-//   const name = nameKeyValue[0].replace("name=", "");
-//   console.info(` create name:${name} spreadsheet & script project...`);
 exec();
-// } else {
-//   console.error(' \u001b[31m please "npm run new name=hoge"');
-// }
