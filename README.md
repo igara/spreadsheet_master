@@ -18,9 +18,10 @@ npx clasp push
 # build & push & watch
 npm run watch
 
-# dump csv from spreadsheet
+# use accept Spreadsheet API & Drive API in google application(and clasp login --creds)
+## dump csv from spreadsheet
 npm run dump
-# recreate csv to spreadsheet
+## recreate csv to spreadsheet
 npm run recreate
 
 # spreadsheet compare(installed LibreOffice)
