@@ -65,6 +65,7 @@ export const exec = async () => {
     const client = google.client();
     const sheets = google.sheets(client);
     const spreadsheetId = claspJson.spreadsheetId;
+
     const csvFilePaths = glob.sync("./data/formula/*.csv");
     await recreateCSVToSpreadsheet(spreadsheetId, csvFilePaths, sheets);
 

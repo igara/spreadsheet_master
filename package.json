@@ -7,7 +7,7 @@
     "clean": "rm -rf dist/**/*.ts.js dist/*.ts.js",
     "new": "ts-node -r tsconfig-paths/register src/tasks/create_clasp_json.ts",
     "dump": "ts-node -r tsconfig-paths/register src/tasks/dump_spreadsheet_to_file.ts",
-    "recreate": "ts-node -r tsconfig-paths/register src/tasks/recreate_csv_to_spreadsheet.ts",
+    "recreate": "ts-node -r tsconfig-paths/register src/tasks/recreate_spreadsheet.ts",
     "build": "node_modules/.bin/webpack",
     "watch": "node_modules/.bin/watch 'npm run clean && npm run build && clasp push' ./src",
     "lint": "eslint . --ext .ts",
