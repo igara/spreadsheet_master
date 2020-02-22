@@ -11,7 +11,7 @@ const exec = (commitHash: string) => {
   childProcess.execSync(currentPDFConvertCommand);
   childProcess.execSync(prevPDFConvertCommand);
 
-  const diffPDFCommand = "diff-pdf --output-diff=diff.pdf spreadsheet.pdf prev_spreadsheet.pdf";
+  const diffPDFCommand = "diff-pdf --output-diff=diff.pdf prev_spreadsheet.pdf spreadsheet.pdf";
   childProcess.exec(diffPDFCommand, () => {
     const openDiffPDFCommand = "open diff.pdf";
     childProcess.execSync(openDiffPDFCommand);
