@@ -4,6 +4,7 @@
   - event_name
   - user_id
   - user_name
+  - memo
 - - 1
   - 1
   - 1
@@ -36,6 +37,7 @@
         ) 
       )
     )), 1, 1)
+  - ""
 - - ""
   - ""
   - 2
@@ -68,6 +70,7 @@
         ) 
       )
     )), 1, 1)
+  - ""
 - - ""
   - ""
   - ""
@@ -100,6 +103,7 @@
         ) 
       )
     )), 1, 1)
+  - ""
 - - ""
   - ""
   - ""
@@ -132,6 +136,7 @@
         ) 
       )
     )), 1, 1)
+  - ""
 - - ""
   - ""
   - ""
@@ -164,6 +169,7 @@
         ) 
       )
     )), 1, 1)
+  - ""
 - - ""
   - ""
   - ""
@@ -196,6 +202,7 @@
         ) 
       )
     )), 1, 1)
+  - ""
 - - ""
   - ""
   - ""
@@ -228,6 +235,7 @@
         ) 
       )
     )), 1, 1)
+  - ""
 - - ""
   - ""
   - ""
@@ -260,6 +268,7 @@
         ) 
       )
     )), 1, 1)
+  - ""
 - - ""
   - ""
   - ""
@@ -279,6 +288,7 @@
         ) 
       )
     )), 1, 1)
+  - ""
 - - ""
   - ""
   - 1
@@ -291,6 +301,7 @@
     =GetCellFilterByColumnValue(
       "users!1:1!id," & GetCellByColumnName("1:1," & ROW(11:11) & ",user_id") &",name"
     )
+  - ""
 - - ""
   - ""
   - 2
@@ -303,6 +314,7 @@
     =GetCellFilterByColumnValue(
       "users!1:1!id," & GetCellByColumnName("1:1," & ROW(12:12) & ",user_id") &",name"
     )
+  - ""
 - - ""
   - ""
   - ""
@@ -315,6 +327,7 @@
     =GetCellFilterByColumnValue(
       "users!1:1!id," & GetCellByColumnName("1:1," & ROW(13:13) & ",user_id") &",name"
     )
+  - ""
 - - ""
   - 5
   - ""
@@ -327,6 +340,7 @@
     =GetCellFilterByColumnValue(
       "users!1:1!id," & GetCellByColumnName("1:1," & ROW(14:14) & ",user_id") &",name"
     )
+  - ""
 - - ""
   - ""
   - ""
@@ -339,6 +353,7 @@
     =GetCellFilterByColumnValue(
       "users!1:1!id," & GetCellByColumnName("1:1," & ROW(15:15) & ",user_id") &",name"
     )
+  - ""
 - - ""
   - ""
   - ""
@@ -351,6 +366,7 @@
     =GetCellFilterByColumnValue(
       "users!1:1!id," & GetCellByColumnName("1:1," & ROW(16:16) & ",user_id") &",name"
     )
+  - ""
 - - ""
   - ""
   - ""
@@ -363,6 +379,7 @@
     =GetCellFilterByColumnValue(
       "users!1:1!id," & GetCellByColumnName("1:1," & ROW(17:17) & ",user_id") &",name"
     )
+  - ""
 - - ""
   - ""
   - ""
@@ -375,6 +392,7 @@
     =GetCellFilterByColumnValue(
       "users!1:1!id," & GetCellByColumnName("1:1," & ROW(18:18) & ",user_id") &",name"
     )
+  - ""
 - - ""
   - ""
   - ""
@@ -387,3 +405,4 @@
     =GetCellFilterByColumnValue(
       "users!1:1!id," & GetCellByColumnName("1:1," & ROW(19:19) & ",user_id") &",name"
     )
+  - ""

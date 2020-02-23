@@ -1,4 +1,4 @@
-id,rank,event_id,event_name,user_id,user_name
+id,rank,event_id,event_name,user_id,user_name,memo
 1,1,1,"=ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
   INDEX(
     INDIRECT(""'events'"" & ""!"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """") & "":"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """")),
@@ -23,7 +23,7 @@ id,rank,event_id,event_name,user_id,user_name
       0
     ) 
   )
-)), 1, 1)"
+)), 1, 1)",
 ,,2,"=ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
   INDEX(
     INDIRECT(""'events'"" & ""!"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """") & "":"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """")),
@@ -48,7 +48,7 @@ id,rank,event_id,event_name,user_id,user_name
       0
     ) 
   )
-)), 1, 1)"
+)), 1, 1)",
 ,,,"=ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
   INDEX(
     INDIRECT(""'events'"" & ""!"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """") & "":"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """")),
@@ -73,7 +73,7 @@ id,rank,event_id,event_name,user_id,user_name
       0
     ) 
   )
-)), 1, 1)"
+)), 1, 1)",
 ,,,"=ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
   INDEX(
     INDIRECT(""'events'"" & ""!"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """") & "":"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """")),
@@ -98,7 +98,7 @@ id,rank,event_id,event_name,user_id,user_name
       0
     ) 
   )
-)), 1, 1)"
+)), 1, 1)",
 ,,,"=ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
   INDEX(
     INDIRECT(""'events'"" & ""!"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """") & "":"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """")),
@@ -123,7 +123,7 @@ id,rank,event_id,event_name,user_id,user_name
       0
     ) 
   )
-)), 1, 1)"
+)), 1, 1)",
 ,,,"=ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
   INDEX(
     INDIRECT(""'events'"" & ""!"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """") & "":"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """")),
@@ -148,7 +148,7 @@ id,rank,event_id,event_name,user_id,user_name
       0
     ) 
   )
-)), 1, 1)"
+)), 1, 1)",
 ,,,"=ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
   INDEX(
     INDIRECT(""'events'"" & ""!"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """") & "":"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """")),
@@ -173,7 +173,7 @@ id,rank,event_id,event_name,user_id,user_name
       0
     ) 
   )
-)), 1, 1)"
+)), 1, 1)",
 ,,,"=ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
   INDEX(
     INDIRECT(""'events'"" & ""!"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """") & "":"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", events!$1:$1, 0), 4), 1, """")),
@@ -198,7 +198,7 @@ id,rank,event_id,event_name,user_id,user_name
       0
     ) 
   )
-)), 1, 1)"
+)), 1, 1)",
 ,,,,,"=ARRAY_CONSTRAIN(ARRAYFORMULA(IFERROR(
   INDEX(
     INDIRECT(""'users'"" & ""!"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", users!$1:$1, 0), 4), 1, """") & "":"" & SUBSTITUTE(ADDRESS(1, MATCH(""name"", users!$1:$1, 0), 4), 1, """")),
@@ -211,49 +211,49 @@ id,rank,event_id,event_name,user_id,user_name
       0
     ) 
   )
-)), 1, 1)"
+)), 1, 1)",
 ,,1,"=GetCellFilterByColumnValue(
   ""events!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(11:11) & "",event_id"") &"",name""
 )",1,"=GetCellFilterByColumnValue(
   ""users!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(11:11) & "",user_id"") &"",name""
-)"
+)",
 ,,2,"=GetCellFilterByColumnValue(
   ""events!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(12:12) & "",event_id"") &"",name""
 )",2,"=GetCellFilterByColumnValue(
   ""users!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(12:12) & "",user_id"") &"",name""
-)"
+)",
 ,,,"=GetCellFilterByColumnValue(
   ""events!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(13:13) & "",event_id"") &"",name""
 )",3,"=GetCellFilterByColumnValue(
   ""users!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(13:13) & "",user_id"") &"",name""
-)"
+)",
 ,5,,"=GetCellFilterByColumnValue(
   ""events!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(14:14) & "",event_id"") &"",name""
 )",,"=GetCellFilterByColumnValue(
   ""users!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(14:14) & "",user_id"") &"",name""
-)"
+)",
 ,,,"=GetCellFilterByColumnValue(
   ""events!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(15:15) & "",event_id"") &"",name""
 )",,"=GetCellFilterByColumnValue(
   ""users!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(15:15) & "",user_id"") &"",name""
-)"
+)",
 ,,,"=GetCellFilterByColumnValue(
   ""events!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(16:16) & "",event_id"") &"",name""
 )",,"=GetCellFilterByColumnValue(
   ""users!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(16:16) & "",user_id"") &"",name""
-)"
+)",
 ,,,"=GetCellFilterByColumnValue(
   ""events!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(17:17) & "",event_id"") &"",name""
 )",,"=GetCellFilterByColumnValue(
   ""users!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(17:17) & "",user_id"") &"",name""
-)"
+)",
 ,,,"=GetCellFilterByColumnValue(
   ""events!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(18:18) & "",event_id"") &"",name""
 )",,"=GetCellFilterByColumnValue(
   ""users!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(18:18) & "",user_id"") &"",name""
-)"
+)",
 ,,,"=GetCellFilterByColumnValue(
   ""events!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(19:19) & "",event_id"") &"",name""
 )",,"=GetCellFilterByColumnValue(
   ""users!1:1!id,"" & GetCellByColumnName(""1:1,"" & ROW(19:19) & "",user_id"") &"",name""
-)"
+)",
