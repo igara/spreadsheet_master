@@ -10,6 +10,9 @@ module.exports = {
       diagnostics: false,
     },
     SpreadsheetApp: {},
+    DriveApp: {},
+    Utilities: {},
+    UrlFetchApp: {}
   },
   moduleDirectories: ["node_modules"],
   moduleFileExtensions: ["js", "json", "ts"],

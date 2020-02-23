@@ -2,17 +2,16 @@
  * 列名から値を取得する
  *
  * @example =GetCellByColumnName("列名の範囲!行番号,列名")
- *          =GetCellByColumnName("2:2,2,プライズ名") 作業中のシートの2行目で列名とマッチした値を取得
+ *          =GetCellByColumnName("2:2!2,name") 作業中のシートの2行目で列名とマッチした値を取得
  * @example =GetCellByColumnName("シート名!列名の範囲!行番号,列名")
- *          =GetCellByColumnName("[PDF]プライズ（ライバー）!2:2!"& ROW(4:4) & ",プライズ名") 該当するシートの4行目で列名とマッチした値を取得
+ *          =GetCellByColumnName("users!2:2!"& ROW(4:4) & ",name") 該当するシートの4行目で列名とマッチした値を取得
  * @param string argsString
  * @return string | number
  * @customfunction
  */
 export const GetCellByColumnName = (argsString: string) => {
-  const args = argsString.split(/(!|,)/);
-
   try {
+    const args = argsString.split(/(!|,)/);
     if (args.length === 5) {
       const columnNamesRangeString = args[0];
       const rowNumber = Number(args[2]);
