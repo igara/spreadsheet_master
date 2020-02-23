@@ -19,7 +19,10 @@ export const writeFileSheetValue = (
       })
       .then(async response => {
         if (response.data.values === undefined) return;
-        const sheetName = response.data.range.replace(/!\S*/, "");
+        const sheetName = response.data.range
+          .replace(/!\S*/, "")
+          .replace(/^'/, "")
+          .replace(/'$/, "");
         const maxColumnsLenght = response.data.values.reduce((accumulator, columns) => {
           return accumulator < columns.length ? columns.length : accumulator;
         }, 0);
@@ -54,7 +57,10 @@ export const writeFileFormulaValue = (
       })
       .then(response => {
         if (response.data.values === undefined) return;
-        const sheetName = response.data.range.replace(/!\S*/, "");
+        const sheetName = response.data.range
+          .replace(/!\S*/, "")
+          .replace(/^'/, "")
+          .replace(/'$/, "");
         const maxColumnsLenght = response.data.values.reduce((accumulator, columns) => {
           return accumulator < columns.length ? columns.length : accumulator;
         }, 0);
