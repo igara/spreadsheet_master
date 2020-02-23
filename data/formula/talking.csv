@@ -14,7 +14,7 @@
 ,スプレットシート全体をGit管理したいとき
 ,,Cloud ConsoleからGoogleアプリ作成する
 ,,,使用するAPIのスコープを設定する
-,,,,npx clasp loginした時に生成される内容と
+,,,,npx clasp loginした時に生成される.clasprc.jsonと
 ,,,,dist/appsscript.json
 ,,,,を参照
 ,,認証情報のJSONファイルをcreds.jsonにリネーム
