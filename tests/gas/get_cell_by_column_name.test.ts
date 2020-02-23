@@ -24,10 +24,10 @@ describe("cell_function_extensions/get_cell_by_column_name", () => {
       getCellByColumnName.GetCellByColumnName(`${columnNamesRangeString}!${rowNumber},event_id`);
 
       const columnNamesRangeStringMock = getRangeMock.mock.calls[0][0];
-      expect(columnNamesRangeStringMock).toBe(columnNamesRangeString);
+      expect(columnNamesRangeStringMock).toEqual(columnNamesRangeString);
 
       const returnGetRangeMock = getRangeMock.mock.calls[1];
-      expect(returnGetRangeMock).toBe([rowNumber, 3]);
+      expect(returnGetRangeMock).toEqual([rowNumber, 3]);
     });
   });
 
@@ -56,20 +56,20 @@ describe("cell_function_extensions/get_cell_by_column_name", () => {
       getCellByColumnName.GetCellByColumnName(`${sheetName}!${columnNamesRangeString}!${rowNumber},user_id`);
 
       const sheetNameMock = getSheetByNameMock.mock.calls[0][0];
-      expect(sheetNameMock).toBe(sheetName);
+      expect(sheetNameMock).toEqual(sheetName);
 
       const columnNamesRangeStringMock = getRangeMock.mock.calls[0][0];
-      expect(columnNamesRangeStringMock).toBe(columnNamesRangeString);
+      expect(columnNamesRangeStringMock).toEqual(columnNamesRangeString);
 
       const returnGetRangeMock = getRangeMock.mock.calls[1];
-      expect(returnGetRangeMock).toBe([rowNumber, 5]);
+      expect(returnGetRangeMock).toEqual([rowNumber, 5]);
     });
   });
 
   test(`GetCellByColumnName("")`, () => {
     import("@src/gas/cell_function_extensions/get_cell_by_column_name").then(getCellByColumnName => {
       const result = getCellByColumnName.GetCellByColumnName("");
-      expect(result).toBe("ERROR");
+      expect(result).toEqual("#ERROR");
     });
   });
 });

@@ -31,9 +31,9 @@ describe("cell_function_extensions/get_cell_filter_by_column_value", () => {
       );
 
       const columnNamesRangeStringMock = getRangeMock.mock.calls[0][0];
-      expect(columnNamesRangeStringMock).toBe(columnNamesRangeString);
+      expect(columnNamesRangeStringMock).toEqual(columnNamesRangeString);
 
-      expect(result).toBe("jiro");
+      expect(result).toEqual("jiro");
     });
   });
 
@@ -69,16 +69,16 @@ describe("cell_function_extensions/get_cell_filter_by_column_value", () => {
       );
 
       const columnNamesRangeStringMock = getRangeMock.mock.calls[0][0];
-      expect(columnNamesRangeStringMock).toBe(columnNamesRangeString);
+      expect(columnNamesRangeStringMock).toEqual(columnNamesRangeString);
 
-      expect(result).toBe("saburo");
+      expect(result).toEqual("saburo");
     });
   });
 
   test(`GetCellFilterByColumnValue("")`, () => {
     import("@src/gas/cell_function_extensions/get_cell_filter_by_column_value").then(getCellByColumnName => {
       const result = getCellByColumnName.GetCellFilterByColumnValue("");
-      expect(result).toBe("ERROR");
+      expect(result).toEqual("#ERROR");
     });
   });
 });

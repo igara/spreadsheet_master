@@ -57,6 +57,8 @@ export const GetCellFilterByColumnValue = (argsString: string) => {
   } catch (error) {
     return "#ERROR";
   }
+
+  return "#ERROR";
 };
 
 global.GetCellFilterByColumnValue = GetCellFilterByColumnValue;

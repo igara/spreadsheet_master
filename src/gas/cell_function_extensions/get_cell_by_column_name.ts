@@ -36,5 +36,7 @@ export const GetCellByColumnName = (argsString: string) => {
   } catch (error) {
     return "#ERROR";
   }
+
+  return "#ERROR";
 };
 global.GetCellByColumnName = GetCellByColumnName;
