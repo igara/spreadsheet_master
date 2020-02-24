@@ -315,5 +315,5 @@ if (commitHashKeyValue && commitHashKeyValue.length === 1) {
   console.info(` diff commitHash:${commitHash} spreadsheet ...`);
   exec(commitHash);
 } else {
-  console.error(' \u001b[31m please "npm run compare commitHash=hoge"');
+  console.error(' \u001b[31m please "npm run compare commit_hash=123456789"');
 }
