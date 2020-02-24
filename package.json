@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "clean": "rm -rf dist/**/*.ts.js dist/*.ts.js",
+    "clean": "rm -rf dist/**/*.ts.js dist/*.ts.js compares/html/*.html compares/html/*.png compares/png/*.png",
     "new": "ts-node -r tsconfig-paths/register src/tasks/create_clasp_json.ts",
     "dump": "ts-node -r tsconfig-paths/register src/tasks/dump_spreadsheet_to_file.ts",
     "recreate": "ts-node -r tsconfig-paths/register src/tasks/recreate_spreadsheet.ts",
