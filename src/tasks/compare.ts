@@ -95,8 +95,6 @@ const exec = async (commitHash: string) => {
     }),
   ]);
 
-  await browser.close();
-
   const modifySheetNames = [...currentSheetNames, ...prevSheetNames].filter((x, i, self) => {
     return self.indexOf(x) === i && i !== self.lastIndexOf(x);
   });
@@ -295,6 +293,19 @@ const exec = async (commitHash: string) => {
 </html>`;
 
   fs.writeFileSync("diff.html", html);
+
+  await Promise.all([
+    browser.newPage().then(async page => {
+      await page.goto(`file:${path.join(__dirname, "../../diff.html")}`);
+      await page.waitFor(5000);
+      await page.screenshot({
+        path: `./diff.png`,
+        fullPage: true,
+      });
+    }),
+  ]);
+
+  await browser.close();
   childProcess.execSync("open diff.html");
 };
 

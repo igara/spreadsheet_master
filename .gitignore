@@ -12,3 +12,4 @@ compares/html/*.html
 compares/*/*.png
 compares/*.xlsx
 diff.html
+diff.png
