@@ -116,8 +116,6 @@ const exec = async (commitHash: string) => {
         const prevCommentFile = fs.readFileSync(`compares/png/prev_comment_${modifySheetName}.png`);
         const currentPng = png.PNG.sync.read(currentFile);
         const prevPng = png.PNG.sync.read(prevFile);
-        const currentCommentPng = png.PNG.sync.read(currentCommentFile);
-        const prevCommentPng = png.PNG.sync.read(prevCommentFile);
 
         const { width: currentWidth, height: currentHeight } = currentPng;
         const { width: prevWidth, height: prevHeight } = prevPng;
