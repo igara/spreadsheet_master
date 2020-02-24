@@ -1,5 +1,5 @@
 import * as fs from "fs";
-const masterignoreFilePath = "data/.masterignore";
+const masterignoreFilePath = ".masterignore";
 
 export const read = () => {
   try {
