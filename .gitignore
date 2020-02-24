@@ -7,4 +7,8 @@ node_modules
 *.apps.googleusercontent.com.json
 creds.json
 *.pdf
-prev_spreadsheet.xlsx
+!.gitkeep
+compares/html/*.html
+compares/*/*.png
+compares/*.xlsx
+diff.html

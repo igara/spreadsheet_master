@@ -25,8 +25,6 @@ npm run dump
 npm run recreate
 
 # spreadsheet compare(installed LibreOffice)
-brew cask install xquartz
-brew install diff-pdf
 npm run compare commit_hash=123456789abcd
 ```
 
