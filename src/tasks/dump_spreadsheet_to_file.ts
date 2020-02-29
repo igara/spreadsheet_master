@@ -1,6 +1,5 @@
 import * as claspJson from "@root/.clasp.json";
 import * as google from "@utils/tasks/google";
-import * as masterignore from "@utils/tasks/masterignore";
 import * as csvStringify from "csv-stringify/lib/sync";
 import * as fs from "fs";
 import * as googleapis from "googleapis";
@@ -28,30 +27,17 @@ export const writeFileSheetValue = (
           return accumulator < columns.length ? columns.length : accumulator;
         }, 0);
 
-        const masterignores = masterignore.read();
-        if (masterignores.includes(sheetName)) {
-          const values = response.data.values.map(value => {
+        const values = response.data.values
+          .filter(value => value.length > 0)
+          .map(value => {
             if (value.length < maxColumnsLenght) {
               while (value.length < maxColumnsLenght) value.push("");
             }
             return value;
           });
 
-          fs.writeFileSync(`./data/values/${sheetName}.csv`, csvStringify(values));
-          fs.writeFileSync(`./data/values/${sheetName}.yml`, yaml.stringify(values));
-        } else {
-          const values = response.data.values
-            .filter(value => value.length > 0)
-            .map(value => {
-              if (value.length < maxColumnsLenght) {
-                while (value.length < maxColumnsLenght) value.push("");
-              }
-              return value;
-            });
-
-          fs.writeFileSync(`./data/values/${sheetName}.csv`, csvStringify(values));
-          fs.writeFileSync(`./data/values/${sheetName}.yml`, yaml.stringify(values));
-        }
+        fs.writeFileSync(`./data/values/${sheetName}.csv`, csvStringify(values));
+        fs.writeFileSync(`./data/values/${sheetName}.yml`, yaml.stringify(values));
       }),
   );
 };
@@ -78,30 +64,18 @@ export const writeFileFormulaValue = (
         const maxColumnsLenght = response.data.values.reduce((accumulator, columns) => {
           return accumulator < columns.length ? columns.length : accumulator;
         }, 0);
-        const masterignores = masterignore.read();
-        if (masterignores.includes(sheetName)) {
-          const values = response.data.values.map(value => {
+
+        const values = response.data.values
+          .filter(value => value.length > 0)
+          .map(value => {
             if (value.length < maxColumnsLenght) {
               while (value.length < maxColumnsLenght) value.push("");
             }
             return value;
           });
 
-          fs.writeFileSync(`./data/formula/${sheetName}.csv`, csvStringify(values));
-          fs.writeFileSync(`./data/formula/${sheetName}.yml`, yaml.stringify(values));
-        } else {
-          const values = response.data.values
-            .filter(value => value.length > 0)
-            .map(value => {
-              if (value.length < maxColumnsLenght) {
-                while (value.length < maxColumnsLenght) value.push("");
-              }
-              return value;
-            });
-
-          fs.writeFileSync(`./data/formula/${sheetName}.csv`, csvStringify(values));
-          fs.writeFileSync(`./data/formula/${sheetName}.yml`, yaml.stringify(values));
-        }
+        fs.writeFileSync(`./data/formula/${sheetName}.csv`, csvStringify(values));
+        fs.writeFileSync(`./data/formula/${sheetName}.yml`, yaml.stringify(values));
       }),
   );
 };
