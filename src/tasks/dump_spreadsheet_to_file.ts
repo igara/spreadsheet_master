@@ -27,14 +27,12 @@ export const writeFileSheetValue = (
           return accumulator < columns.length ? columns.length : accumulator;
         }, 0);
 
-        const values = response.data.values
-          .filter(value => value.length > 0)
-          .map(value => {
-            if (value.length < maxColumnsLenght) {
-              while (value.length < maxColumnsLenght) value.push("");
-            }
-            return value;
-          });
+        const values = response.data.values.map(value => {
+          if (value.length < maxColumnsLenght) {
+            while (value.length < maxColumnsLenght) value.push("");
+          }
+          return value;
+        });
 
         fs.writeFileSync(`./data/values/${sheetName}.csv`, csvStringify(values));
         fs.writeFileSync(`./data/values/${sheetName}.yml`, yaml.stringify(values));
@@ -65,14 +63,12 @@ export const writeFileFormulaValue = (
           return accumulator < columns.length ? columns.length : accumulator;
         }, 0);
 
-        const values = response.data.values
-          .filter(value => value.length > 0)
-          .map(value => {
-            if (value.length < maxColumnsLenght) {
-              while (value.length < maxColumnsLenght) value.push("");
-            }
-            return value;
-          });
+        const values = response.data.values.map(value => {
+          if (value.length < maxColumnsLenght) {
+            while (value.length < maxColumnsLenght) value.push("");
+          }
+          return value;
+        });
 
         fs.writeFileSync(`./data/formula/${sheetName}.csv`, csvStringify(values));
         fs.writeFileSync(`./data/formula/${sheetName}.yml`, yaml.stringify(values));
