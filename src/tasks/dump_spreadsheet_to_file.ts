@@ -5,14 +5,20 @@ import * as fs from "fs";
 import * as googleapis from "googleapis";
 import * as yaml from "yaml";
 
+const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
+
 export const writeFileSheetValue = (
   spreadsheetId: string,
   sheetRanges: string[],
   // eslint-disable-next-line @typescript-eslint/camelcase
   sheets: googleapis.sheets_v4.Sheets,
 ) => {
-  return sheetRanges.map(range =>
-    sheets.spreadsheets.values
+  return sheetRanges.map(async (range, index) => {
+    // limit Read requests per user per 100 seconds
+    const quotient = Math.floor(index / 90);
+    await sleep(quotient * 100000);
+
+    return sheets.spreadsheets.values
       .get({
         spreadsheetId,
         range,
@@ -36,8 +42,8 @@ export const writeFileSheetValue = (
 
         fs.writeFileSync(`./data/values/${sheetName}.csv`, csvStringify(values));
         fs.writeFileSync(`./data/values/${sheetName}.yml`, yaml.stringify(values));
-      }),
-  );
+      });
+  });
 };
 
 export const writeFileFormulaValue = (
@@ -46,8 +52,12 @@ export const writeFileFormulaValue = (
   // eslint-disable-next-line @typescript-eslint/camelcase
   sheets: googleapis.sheets_v4.Sheets,
 ) => {
-  return sheetRanges.map(range =>
-    sheets.spreadsheets.values
+  return sheetRanges.map(async (range, index) => {
+    // limit Read requests per user per 100 seconds
+    const quotient = Math.floor(index / 90);
+    await sleep(quotient * 100000);
+
+    return sheets.spreadsheets.values
       .get({
         spreadsheetId,
         range,
@@ -72,8 +82,8 @@ export const writeFileFormulaValue = (
 
         fs.writeFileSync(`./data/formula/${sheetName}.csv`, csvStringify(values));
         fs.writeFileSync(`./data/formula/${sheetName}.yml`, yaml.stringify(values));
-      }),
-  );
+      });
+  });
 };
 
 export const exec = async () => {
@@ -89,11 +99,10 @@ export const exec = async () => {
       sheet => `${sheet.properties.title}!1:${sheet.properties.gridProperties.rowCount}`,
     );
 
-    Promise.all([
-      google.downloadSpreadsheet(spreadsheetId),
-      ...writeFileSheetValue(spreadsheetId, sheetRanges, sheets),
-      ...writeFileFormulaValue(spreadsheetId, sheetRanges, sheets),
-    ]);
+    await google.downloadSpreadsheet(spreadsheetId);
+    await Promise.all(writeFileSheetValue(spreadsheetId, sheetRanges, sheets));
+    await sleep(100000);
+    await Promise.all(writeFileFormulaValue(spreadsheetId, sheetRanges, sheets));
   } catch (error) {
     console.error(error);
   }
