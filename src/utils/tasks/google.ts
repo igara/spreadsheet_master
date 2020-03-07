@@ -39,14 +39,14 @@ export const sheets = (oauth2Client: GoogleAuthLibrary.OAuth2Client) =>
     auth: oauth2Client,
   });
 
-export const downloadSpreadsheet = (fileId: string) => {
+export const downloadSpreadsheet = async (oauth2Client: GoogleAuthLibrary.OAuth2Client, fileId: string) => {
   const fetchUrl = `https://docs.google.com/feeds/download/spreadsheets/Export?key=${fileId}&amp;exportFormat=xlsx`;
-  const json = clasprcJson.read();
+  const accessToken = await oauth2Client.getAccessToken();
 
   return request({
     url: fetchUrl,
     headers: {
-      Authorization: `Bearer ${json.token.access_token}`,
+      Authorization: `Bearer ${accessToken.token}`,
     },
     method: "GET",
     encoding: null,

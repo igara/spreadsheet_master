@@ -20,7 +20,7 @@ npm run watch
 
 # use accept Spreadsheet API & Drive API in google application(and clasp login --creds)
 ## dump csv & xlsx from spreadsheet
-npm run dump
+npm run dump spreadsheet_id=xxxxxxxxxxxx
 ## recreate csv to spreadsheet(after import & sheet replace data/spreadsheet.xlsx to spreadsheet)
 npm run recreate
 

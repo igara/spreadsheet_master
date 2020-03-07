@@ -1,4 +1,3 @@
-import * as claspJson from "@root/.clasp.json";
 import * as google from "@utils/tasks/google";
 import * as csvStringify from "csv-stringify/lib/sync";
 import * as fs from "fs";
@@ -86,10 +85,9 @@ export const writeFileFormulaValue = (
   });
 };
 
-export const exec = async () => {
+export const exec = async (spreadsheetId: strong) => {
   try {
     const client = google.client();
-    const spreadsheetId = claspJson.spreadsheetId;
 
     const sheets = google.sheets(client);
     const spreadsheetResponse = await sheets.spreadsheets.get({
@@ -99,7 +97,7 @@ export const exec = async () => {
       sheet => `${sheet.properties.title}!1:${sheet.properties.gridProperties.rowCount}`,
     );
 
-    await google.downloadSpreadsheet(spreadsheetId);
+    await google.downloadSpreadsheet(client, spreadsheetId);
     await Promise.all(writeFileSheetValue(spreadsheetId, sheetRanges, sheets));
     await sleep(100000);
     await Promise.all(writeFileFormulaValue(spreadsheetId, sheetRanges, sheets));
@@ -108,4 +106,11 @@ export const exec = async () => {
   }
 };
 
-exec();
+const spreadsheetIdKeyValue = process.argv.join().match(/spread_sheet=\S*/);
+if (spreadsheetIdKeyValue && spreadsheetIdKeyValue.length === 1) {
+  const spreadsheetId = spreadsheetIdKeyValue[0].replace("spread_sheet=", "");
+  console.info(` dump:${spreadsheetId} csv & xlsx ...`);
+  exec(spreadsheetId);
+} else {
+  console.error(' \u001b[31m please "npm run dump spreadsheet_id=xxxxxxxxxx"');
+}
