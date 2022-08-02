@@ -65,7 +65,7 @@
     "gas-webpack-plugin": "1.0.2",
     "jest": "25.1.0",
     "prettier": "1.19.1",
-    "ts-jest": "25.2.0",
+    "ts-jest": "25.5.1",
     "ts-node": "8.6.2",
     "tsconfig-paths": "3.9.0",
     "tsconfig-paths-jest": "0.0.1",
