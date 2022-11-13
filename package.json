@@ -71,7 +71,7 @@
     "tsconfig-paths-jest": "0.0.1",
     "typescript": "3.7.5",
     "webpack": "4.41.6",
-    "webpack-cli": "3.3.11"
+    "webpack-cli": "3.3.12"
   },
   "_moduleAliases": {
     "@src": "./src"
